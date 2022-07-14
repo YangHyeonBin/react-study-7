@@ -13,9 +13,15 @@ class UserFinder extends Component {
   constructor() {
     super();
     this.state = {
-      filteredUsers: DUMMY_USERS,
+      filteredUsers: [], // HTTP 요청 보내 서버 DB에서 (위의 DUMMY_USERS를) 받아온다고 가정
       searchTerm: '',
     };
+  }
+
+  // lifecycle method // side effect: http request
+  componentDidMount() { // 컴포넌트 첫 렌더 때만 호출(&실행)되므로 if문 통한 체크 필요 X
+    // Send http request...
+    this.setState({ filteredUsers: DUMMY_USERS });
   }
 
   // lifecycle method // side effect 처리 위해
