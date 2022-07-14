@@ -3,12 +3,6 @@ import User from './User';
 
 import styles from './Users.module.css';
 
-const DUMMY_USERS = [
-  { id: 'u1', name: 'Max' },
-  { id: 'u2', name: 'Manuel' },
-  { id: 'u3', name: 'Juelie' },
-];
-
 // 클래스형 컴포넌트
 class Users extends Component {
   constructor() { // state set up(define, initialize)
@@ -32,7 +26,7 @@ class Users extends Component {
   render() {
     const usersList = (
       <ul>
-        {DUMMY_USERS.map((user) => (
+        {this.props.users.map((user) => ( // this.props.users는 UserFinder에서 이 컴포넌트로 보내준 유저 배열
           <User key={user.id} name={user.name} />
         ))}
       </ul>
