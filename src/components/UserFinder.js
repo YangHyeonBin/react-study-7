@@ -3,6 +3,7 @@ import { Fragment, Component } from 'react';
 import Users from './Users';
 import styles from './UserFinder.module.css';
 import UsersContext from '../store/users-context';
+import ErrorBoundary from './ErrorBoundary';
 
 class UserFinder extends Component {
   static contextType = UsersContext;
@@ -45,7 +46,9 @@ class UserFinder extends Component {
         <div className={styles.finder}>
           <input type="search" onChange={this.searchChangeHandler.bind(this)} />
         </div>
-        <Users users={this.state.filteredUsers} /> {/* props로 users 배열을 전달 */}
+        <ErrorBoundary> {/* 오류 날 컴포넌트 감쌈*/}
+          <Users users={this.state.filteredUsers} /> {/* props로 users 배열을 전달 */}
+        </ErrorBoundary>
       </Fragment>
     );
   }

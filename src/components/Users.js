@@ -13,6 +13,18 @@ class Users extends Component {
     };
   }
 
+  // lifecycle method
+  componentDidUpdate() {
+    // try {
+    //   someCodeWhichMightFail()
+    // } catch (err) {
+    //   // handle error
+    // }
+    if (this.props.users.length === 0) {
+      throw new Error('No users provided!'); // 오류 직접 만드는 것
+    }
+  } 
+
   // state update
   // render() 메서드 안에 함수 정의 X
   // 사용하려는 함수를 메서드로, 여기에 씀 (const 없이)
