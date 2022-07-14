@@ -3,7 +3,7 @@ import User from './User';
 
 import styles from './Users.module.css';
 
-// 클래스형 컴포넌트
+// CLASS-BASED COMPONENT
 class Users extends Component {
   constructor() { // state set up(define, initialize)
     super(); // 상위 클래스의 생성자 호출
@@ -43,7 +43,7 @@ class Users extends Component {
   }
 }
 
-// 함수형 컴포넌트
+// FUNCTIONAL COMPONENT
 // const Users = () => {
 //   const [showUsers, setShowUsers] = useState(true);
 
